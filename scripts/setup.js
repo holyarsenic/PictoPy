@@ -53,4 +53,7 @@ proc.on('error', (err) => {
 
 proc.on('close', (code) => {
   console.log(`Setup finished with exit code ${code}`);
+  if (code !== 0) {
+    process.exit(code ?? 1);
+  }
 });
